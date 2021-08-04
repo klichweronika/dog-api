@@ -6,7 +6,7 @@ export default function Header() {
     <div className="header">
       <h1>Welcome!</h1>
       <p>Do you want to see some cute dog?</p>
-      <p>Choose the dog from the list to show cute picture!</p>
+      <p>Choose the dog from the list to show the picture!</p>
     </div>
   );
 }
