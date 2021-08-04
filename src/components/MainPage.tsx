@@ -29,8 +29,8 @@ export default function App() {
           Object.keys(dogs).forEach((key) =>
             dogs[key].length > 0
               ? dogs[key].forEach((subbreed) =>
-                  allDogs.push(subbreed + " " + key)
-                )
+                allDogs.push(subbreed + " " + key)
+              )
               : allDogs.push(key)
           );
           setDogsList(allDogs);
@@ -86,19 +86,19 @@ export default function App() {
   } else {
     return (
       <div className="main-page">
-          <div className="dogs-list-container">
+        <div className="dogs-list-container">
           <SearchInput
             placeholderText="Search Dog"
             onChangeFun={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSearch(e.target.value)
             }
           />
-            
-            <DogsList filteredDogs={filteredDogs} handleClick={handleClick} />
-          </div>
-          <div className="dog-photo-container">
+
+          <DogsList filteredDogs={filteredDogs} handleClick={handleClick} />
+        </div>
+        <div className="dog-photo-container">
           <DogImage imgUrl={imgUrl} imgTitle={imgTitle} alt={imgAlt} />
-            </div>
+        </div>
       </div>
     );
   }

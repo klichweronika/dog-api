@@ -2,9 +2,13 @@
     background-color: cadetblue;
     text-align:center;
     flex: 1;
+    
 }
 .dog-img {
-    margin: 1rem;
+    margin: 2rem;
     max-width: 50vw;
     max-height: 50vh;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0);
+    transition: transform 0.1s;
+
   }
