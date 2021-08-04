@@ -1,0 +1,23 @@
+.dogs-list-container{
+    background-color: beige;
+    width: 30%;
+    height:50rem;
+    overflow-y:scroll;
+    
+    p {
+      margin: 1rem;
+      
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      text-align: center;
+    }
+    
+    li {
+      &:hover {
+        color: red;
+        cursor: pointer;
+      }
+    }
+  }
