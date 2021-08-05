@@ -1,21 +1,26 @@
-import React from 'react';
-import { Locale } from '../common/Locale';
-import '../styles/SearchInput.scss'
+import { ChangeEvent, useState } from "react";
+import "../styles/SearchInput.scss";
 
-type SearchInputProps = {
-    placeholderText: string;
-    onChangeFun: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  };
+export type SearchInputProps = {
+  placeholderText: string;
+  onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+};
 
-export default function SearchInput({ placeholderText, onChangeFun }: SearchInputProps) {
+export default function SearchInput({
+  placeholderText: defaultPlaceholder,
+  onChangeHandler,
+}: SearchInputProps) {
+  const [placeholder, setPlaceholder] = useState<string>(defaultPlaceholder);
+
   return (
-    <div className='search-input-box'>
-      <p>{Locale.searchInputDog}</p>
-        <input 
-          type='text' 
-          placeholder={placeholderText} 
-          onChange={onChangeFun} 
-        />
+    <div className="search-input">
+      <input
+        type="text"
+        placeholder={placeholder}
+        onChange={onChangeHandler}
+        onFocus={() => setPlaceholder("")}
+        onBlur={() => setPlaceholder(defaultPlaceholder)}
+      />
     </div>
   );
 }

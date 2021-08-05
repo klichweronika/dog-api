@@ -1,11 +1,15 @@
 type Texts = {
-   footerTheBestDog: string;
-   allRightsReserved: string;
-   searchInputDog: string;
-}
+  everyDogIsTheBestDog: string;
+  allRightsReserved: string;
+  typeDogBreed: string;
+  dogImageNotAvailable: string;
+  thereAreNoBreeds: string;
+};
 
 export const Locale: Texts = {
-    footerTheBestDog: 'Every dog is the best dog.',
-    allRightsReserved: '@ Klich Weronika. All rights reserved / Requirement task.',
-    searchInputDog: 'Search dog from input search or choose dog breed from the list!',
-}
+  everyDogIsTheBestDog: "Every dog is the best dog!",
+  allRightsReserved: "@ Author: Klich Weronika",
+  typeDogBreed: "Type dog breed",
+  dogImageNotAvailable: "Dog image not available.",
+  thereAreNoBreeds: "There are no breeds.",
+};
