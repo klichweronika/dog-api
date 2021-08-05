@@ -1,8 +1,4 @@
-import React from 'react';
-import DogList  from './DogList';
-import Header from './Header';
-import "../styles/App.scss";
-import DogImage from './DogImage';
+import '../styles/App.scss';
 import MainPage from './MainPage';
 import Footer from './Footer';
 

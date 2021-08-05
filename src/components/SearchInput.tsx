@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { Locale } from '../common/Locale';
 import '../styles/SearchInput.scss'
 
 type SearchInputProps = {
@@ -8,11 +9,10 @@ type SearchInputProps = {
 
 export default function SearchInput({ placeholderText, onChangeFun }: SearchInputProps) {
   return (
-    <div className="search-input-box">
-      {/* <div className="search-icon"></div> */}
-      <p>Search dog from input search or choose dog breed from the list!</p>
+    <div className='search-input-box'>
+      <p>{Locale.searchInputDog}</p>
         <input 
-          type="text" 
+          type='text' 
           placeholder={placeholderText} 
           onChange={onChangeFun} 
         />

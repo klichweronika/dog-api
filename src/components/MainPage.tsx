@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from "react";
-import SearchInput from "./SearchInput";
-import DogImage from "./DogImage";
-import DogsList from "./DogList";
-import Header from "./Header";
-import Footer from "./Footer";
+import React, { useState, useEffect } from 'react';
+import SearchInput from './SearchInput';
+import DogImage from './DogImage';
+import DogsList from './DogList';
+import Footer from './Footer';
 import '../styles/MainPage.scss'
 
 export default function App() {
-  const defaultImg: string = "https://icon-library.com/images/dog-icon-png/dog-icon-png-18.jpg";
+  const defaultImg: string = 'https://image.flaticon.com/icons/png/512/194/194279.png';
   const [error, setError] = useState<{ message: string } | null>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [dogsList, setDogsList] = useState<string[]>([]);
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>('');
   const [filteredDogs, setFilteredDogs] = useState<string[]>([]);
-  const [dogImageSrc, setDogImageSrc] = useState<string>("");
-  const [imgUrl, setImgUrl] = useState<string>(defaultImg);
-  const [imgTitle, setImgTitle] = useState<string>("");
-  const [imgAlt, setImgAlt] = useState<string>("dog picture");
+  const [dogImageSrc, setDogImageSrc] = useState<string>('');
+  const [imageUrl, setimageUrl] = useState<string>(defaultImg);
+  const [imgTitle, setImgTitle] = useState<string>('');
+  const [imgAlt, setImgAlt] = useState<string>('cute dog');
 
   useEffect(() => {
-    fetch("https://dog.ceo/api/breeds/list/all")
+    fetch('https://dog.ceo/api/breeds/list/all')
       .then((res) => res.json())
       .then(
         (result: { message: { [key: string]: string[] } }) => {
@@ -29,7 +28,7 @@ export default function App() {
           Object.keys(dogs).forEach((key) =>
             dogs[key].length > 0
               ? dogs[key].forEach((subbreed) =>
-                allDogs.push(subbreed + " " + key)
+                allDogs.push(subbreed + ' ' + key)
               )
               : allDogs.push(key)
           );
@@ -51,7 +50,7 @@ export default function App() {
   }, [search, dogsList]);
 
   function handleClick(dog: string): void {
-    const dogName = dog.split(" ");
+    const dogName = dog.split(' ');
     if (dogName.length === 1) {
       setDogImageSrc(`https://dog.ceo/api/breed/${dogName[0]}/images/random`);
     } else {
@@ -64,13 +63,13 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (dogImageSrc === "") return;
+    if (dogImageSrc === '') return;
     fetch(dogImageSrc)
       .then((res) => res.json())
       .then(
         (result: { message: string }) => {
           setIsLoaded(true);
-          setImgUrl(result.message);
+          setimageUrl(result.message);
         },
         (error: { message: string }) => {
           setIsLoaded(true);
@@ -85,17 +84,17 @@ export default function App() {
     return <div>Loading...</div>;
   } else {
     return (
-      <div className="main-page">
-        <div className="dogs-list-container">
+      <div className='main-page'>
+        <div className='dogs-list-container'>
           <SearchInput
-            placeholderText="Choose dog breed"
+            placeholderText='Choose dog breed'
             onChangeFun={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSearch(e.target.value)
             }
           />
           <DogsList filteredDogs={filteredDogs} handleClick={handleClick} />
         </div>
-        <DogImage imgUrl={imgUrl} imgTitle={imgTitle} alt={imgAlt} />
+        <DogImage imageUrl={imageUrl} imgTitle={imgTitle} alt={imgAlt} />
       </div>
     );
   }
