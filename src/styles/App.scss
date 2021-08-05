@@ -2,3 +2,26 @@
   margin: 0;
   padding: 0;
 }
+
+.menu {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 11;
+}
+
+.app {
+  display: grid;
+}
+
+.presenter {
+  grid-column-start: 2;
+  grid-column-end: 12;
+  grid-row-start: 1;
+  grid-row-end: 11;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}

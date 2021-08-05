@@ -1,0 +1,18 @@
+.dog-image {
+  background-image: url("https://i.pinimg.com/564x/8d/84/9f/8d849f06cdf6ba03f72d24edaf711053.jpg");
+  text-align: center;
+  height: 100%;
+
+  &__box {
+    margin: auto;
+    text-align: center;
+  }
+
+  &__text {
+    flex: 1;
+
+    p {
+      margin: 2rem;
+    }
+  }
+}

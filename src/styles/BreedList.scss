@@ -1,0 +1,32 @@
+.breed-list {
+  list-style: none;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 85.63vh;
+
+  &-item {
+    margin-left: 1rem;
+    font-weight: normal;
+    cursor: default;
+    padding: 0.1rem;
+    text-transform: capitalize;
+
+    :hover {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 0.2vw;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 3px solid orange;
+}

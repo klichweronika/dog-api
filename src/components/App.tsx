@@ -1,12 +1,25 @@
+import ActiveBreedProvider from "../common/DogContext";
 import "../styles/App.scss";
-import MainPage from "./MainPage";
+import BreedNavigator from "./BreedNavigator";
+import DogPresenter from "./DogPresenter";
 import Footer from "./Footer";
 
 export default function App() {
   return (
-    <>
-      <MainPage />
-      <Footer />
-    </>
+    <div className="app">
+      <ActiveBreedProvider>
+        <div className="menu">
+          <BreedNavigator />
+        </div>
+
+        <div className="presenter">
+          <DogPresenter />
+        </div>
+      </ActiveBreedProvider>
+
+      <div className="footer">
+        <Footer />
+      </div>
+    </div>
   );
 }

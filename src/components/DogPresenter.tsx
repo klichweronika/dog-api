@@ -1,26 +1,54 @@
+import { useEffect, useState } from "react";
+import { useActiveBreed } from "../common/DogContext";
 import { Locale } from "../common/Locale";
-import "../styles/DogImage.scss";
-import { BreedPresentation } from "./MainPage";
+import "../styles/DogPresenter.scss";
 
-type DogImageProps = {
-  breedPresentation?: BreedPresentation | null;
+export type BreedPresentation = {
+  text: string;
+  imageUrl: string;
+  imageAlt: string;
 };
 
-export default function DogPresenter({ breedPresentation }: DogImageProps) {
-  const fallbackImage =
-    "https://image.flaticon.com/icons/png/512/194/194279.png";
-  const fallbackAlt = Locale.dogImageNotAvailable;
+export default function DogPresenter() {
+  const [activeDog, setActiveDog] = useState<BreedPresentation>({
+    imageUrl: "https://image.flaticon.com/icons/png/512/194/194279.png",
+    imageAlt: Locale.dogImageNotAvailable,
+    text: "",
+  });
+  const { activeBreed } = useActiveBreed();
 
-  const imageAlt = breedPresentation?.imageAlt ?? fallbackAlt;
-  const imageUrl = breedPresentation?.imageUrl ?? fallbackImage;
-  const breedText = breedPresentation?.text ?? "No description  :(";
+  useEffect(() => {
+    if (activeBreed == null || activeBreed === "") {
+      return;
+    }
+
+    const breedNames = activeBreed.split(" ");
+
+    if (breedNames.length === 1) {
+      setActiveDog({
+        imageUrl: `https://dog.ceo/api/breed/${breedNames[0]}/images/random`,
+        text: `Picture of ${breedNames[0]}.`,
+        imageAlt: breedNames[0],
+      });
+
+      return;
+    }
+
+    setActiveDog({
+      imageUrl: `https://dog.ceo/api/breed/${breedNames[1]}/${breedNames[0]}/images/random`,
+      text: `Picture of ${breedNames[1]} ${breedNames[0]}.`,
+      imageAlt: `${breedNames[1]} ${breedNames[0]}`,
+    });
+  }, [activeBreed]);
+
+  const { imageUrl, text } = activeDog;
 
   return (
     <div className="dog-image">
       <div className="dog-image__box">
-        <img src={imageUrl ?? fallbackImage} alt={imageAlt ?? fallbackAlt} />
+        <img src={imageUrl} alt={Locale.dogImageNotAvailable} />
         <div className="dog-image__text">
-          <p>{breedText}</p>
+          <p>{text}</p>
         </div>
       </div>
     </div>
