@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchInput from './SearchInput';
 import DogImage from './DogImage';
-import DogsList from './DogList';
-import Footer from './Footer';
+import DogsList from './DogDataList';
 import '../styles/MainPage.scss'
 
 export default function App() {
@@ -14,8 +13,8 @@ export default function App() {
   const [filteredDogs, setFilteredDogs] = useState<string[]>([]);
   const [dogImageSrc, setDogImageSrc] = useState<string>('');
   const [imageUrl, setimageUrl] = useState<string>(defaultImg);
-  const [imgTitle, setImgTitle] = useState<string>('');
-  const [imgAlt, setImgAlt] = useState<string>('cute dog');
+  const [imageTitle, setImageTitle] = useState<string>('');
+  const [imageAlt, setImageAlt] = useState<string>('cute dog');
 
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/list/all')
@@ -58,8 +57,8 @@ export default function App() {
         `https://dog.ceo/api/breed/${dogName[1]}/${dogName[0]}/images/random`
       );
     }
-    setImgTitle(`Photo for: ${dog}`);
-    setImgAlt(`Picture of ${dog}`);
+    setImageTitle(`Photo for: ${dog}`);
+    setImageAlt(`Picture of ${dog}`);
   }
 
   useEffect(() => {
@@ -94,10 +93,8 @@ export default function App() {
           />
           <DogsList filteredDogs={filteredDogs} handleClick={handleClick} />
         </div>
-        <DogImage imageUrl={imageUrl} imgTitle={imgTitle} alt={imgAlt} />
+        <DogImage imageUrl={imageUrl} imageTitle={imageTitle} imageAlt={imageAlt} />
       </div>
     );
   }
 }
-
-

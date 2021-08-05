@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/DogList.scss';
+import '../styles/DogDataList.scss';
 
 type DogsListProps = {
   filteredDogs: string[];
