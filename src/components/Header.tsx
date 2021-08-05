@@ -7,9 +7,11 @@ import SearchInput from "./SearchInput";
 export default function Header() {
   return (
     <div className="header">
-      <div className="icon"></div>
-      <h1>{Locale.headerWelcome}</h1>
-      <p>{Locale.headerChooseDog}</p>
+      <div className="header-icon"></div>
+      <div className="header-text">
+        <h1>{Locale.headerWelcome}</h1>
+        <p>{Locale.headerChooseDog}</p>
+      </div>
     </div>
   );
 }

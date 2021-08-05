@@ -10,7 +10,6 @@ export default function DogsList({ filteredDogs, handleClick }: DogsListProps) {
   if (filteredDogs.length > 0) {
     return (
       <>
-        <p>Search dog!</p>
         <ul>
           {filteredDogs.map((dog: string) => (
             <li key={dog} onClick={() => handleClick(dog)}>

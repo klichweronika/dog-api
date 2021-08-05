@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchInput from "./SearchInput";
-import DogImage from "./DogPhoto";
+import DogImage from "./DogImage";
 import DogsList from "./DogList";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -88,17 +88,14 @@ export default function App() {
       <div className="main-page">
         <div className="dogs-list-container">
           <SearchInput
-            placeholderText="Search Dog"
+            placeholderText="Choose dog breed"
             onChangeFun={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSearch(e.target.value)
             }
           />
-
           <DogsList filteredDogs={filteredDogs} handleClick={handleClick} />
         </div>
-        <div className="dog-photo-container">
-          <DogImage imgUrl={imgUrl} imgTitle={imgTitle} alt={imgAlt} />
-        </div>
+        <DogImage imgUrl={imgUrl} imgTitle={imgTitle} alt={imgAlt} />
       </div>
     );
   }

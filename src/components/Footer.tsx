@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Footer.scss"
 import { Locale } from "../common/Locale";
 
-export default function DogPhoto() {
+export default function DogImage() {
   return (
     <div className="footer-container">
       <p>{Locale.footerTheBestDog}</p>
