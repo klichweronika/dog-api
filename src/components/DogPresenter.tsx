@@ -24,22 +24,42 @@ export default function DogPresenter() {
 
     const breedNames = activeBreed.split(" ");
 
-    if (breedNames.length === 1) {
-      setActiveDog({
-        imageUrl: `https://dog.ceo/api/breed/${breedNames[0]}/images/random`,
-        text: `Picture of ${breedNames[0]}.`,
-        imageAlt: breedNames[0],
-      });
+    async function SetActiveDogImage(breedNames: string[]) {
+      if (breedNames.length === 1) {
+        setActiveDog({
+          imageUrl: await getBreedImageUrl(breedNames),
+          text: `Picture of ${breedNames[0]}.`,
+          imageAlt: breedNames[0],
+        });
 
-      return;
+        return;
+      }
+
+      setActiveDog({
+        imageUrl: await getSubBreedImageUrl(breedNames),
+        text: `Picture of ${breedNames[1]} ${breedNames[0]}.`,
+        imageAlt: `${breedNames[1]} ${breedNames[0]}`,
+      });
     }
 
-    setActiveDog({
-      imageUrl: `https://dog.ceo/api/breed/${breedNames[1]}/${breedNames[0]}/images/random`,
-      text: `Picture of ${breedNames[1]} ${breedNames[0]}.`,
-      imageAlt: `${breedNames[1]} ${breedNames[0]}`,
-    });
+    SetActiveDogImage(breedNames);
   }, [activeBreed]);
+
+  const getBreedImageUrl = async (breedNames: string[]) => {
+    const response = await fetch(
+      `https://dog.ceo/api/breed/${breedNames[0]}/images/random`
+    );
+    const json = await response.json();
+    return json.message;
+  };
+
+  const getSubBreedImageUrl = async (breedNames: string[]) => {
+    const response = await fetch(
+      `https://dog.ceo/api/breed/${breedNames[0]}/${breedNames[1]}/images/random`
+    );
+    const json = await response.json();
+    return json.message;
+  };
 
   const { imageUrl, text } = activeDog;
 
