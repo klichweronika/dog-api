@@ -1,5 +1,4 @@
 .dogs-list-container{
-    background-color: beige;
     width: 30%;
     height:50rem;
     overflow-y:scroll;
@@ -15,9 +14,12 @@
     }
     
     li {
+      margin: 0.7rem;
+      font-size: 0.8rem; 
+      
       &:hover {
-        color: red;
         cursor: pointer;
+        font-weight: bold;
       }
     }
   }

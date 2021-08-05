@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import '../styles/MainPage.scss'
 
 export default function App() {
-  const defaultImg: string = "https://dog.ceo/img/dog-api-logo.svg";
+  const defaultImg: string = "https://icon-library.com/images/dog-icon-png/dog-icon-png-18.jpg";
   const [error, setError] = useState<{ message: string } | null>(null);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [dogsList, setDogsList] = useState<string[]>([]);

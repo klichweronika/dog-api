@@ -10,8 +10,8 @@ type DogImageProps = {
 export default function DogPhoto({ imgUrl, imgTitle, alt }: DogImageProps) {
   return (
     <div className="dog-photo-container">
-      <div>{imgTitle}</div>
       <img className="dog-img" src={imgUrl} alt={alt} />
+      <div>{imgTitle}</div>
     </div>
   );
 }
