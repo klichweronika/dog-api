@@ -2,10 +2,10 @@
   list-style: none;
   text-align: left;
   overflow-y: auto;
-  min-height: 85.63vh;
+  max-height: 85.63vh;
 
   &-item {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
     font-weight: normal;
     cursor: default;
     padding: 0.1rem;

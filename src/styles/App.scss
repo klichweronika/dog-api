@@ -4,21 +4,15 @@
 }
 
 .menu {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 11;
 }
 
 .app {
-  display: grid;
+  display: flex;
 }
 
 .presenter {
-  grid-column-start: 2;
-  grid-column-end: 12;
-  grid-row-start: 1;
-  grid-row-end: 11;
+  background-image: url("https://i.pinimg.com/564x/8d/84/9f/8d849f06cdf6ba03f72d24edaf711053.jpg");
+  width: 100%;
 }
 
 .footer {
