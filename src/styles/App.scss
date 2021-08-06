@@ -3,9 +3,6 @@
   padding: 0;
 }
 
-.menu {
-}
-
 .app {
   display: flex;
   height: 100rem;
@@ -19,22 +16,4 @@
 .footer {
   position: absolute;
   bottom: 0;
-}
-
-@media screen and (max-width: 900px) {
-  .app {
-    flex-direction: column;
-  }
-
-  .app {
-    display: flex;
-    height: 100rem;
-  }
-
-  .presenter {
-    background-image: url("https://i.pinimg.com/564x/8d/84/9f/8d849f06cdf6ba03f72d24edaf711053.jpg");
-  }
-
-  .menu {
-  }
 }
