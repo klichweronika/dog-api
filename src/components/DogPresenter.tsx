@@ -68,12 +68,12 @@ export default function DogPresenter() {
   return (
     <div className="dog-image">
       <div className="dog-image__box">
+        <button onClick={loadNewImageHandler}>{Locale.seeNextImage}</button>
         <img src={imageUrl} alt={Locale.dogImageNotAvailable} />
         <div className="dog-image__text">
           <p>{text}</p>
         </div>
       </div>
-      <button onClick={loadNewImageHandler}>{Locale.seeNextImage}</button>
     </div>
   );
 }
