@@ -4,6 +4,7 @@ type Texts = {
   typeDogBreed: string;
   dogImageNotAvailable: string;
   thereAreNoBreeds: string;
+  seeNextImage: string;
 };
 
 export const Locale: Texts = {
@@ -12,4 +13,5 @@ export const Locale: Texts = {
   typeDogBreed: "Type dog breed",
   dogImageNotAvailable: "Dog image not available.",
   thereAreNoBreeds: "There are no breeds.",
+  seeNextImage: "Click to see next image.",
 };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useActiveBreed } from "../common/DogContext";
 import { Locale } from "../common/Locale";
 import "../styles/DogPresenter.scss";
@@ -17,7 +17,7 @@ export default function DogPresenter() {
   });
   const { activeBreed } = useActiveBreed();
 
-  useEffect(() => {
+  const loadNewImageHandler = useCallback(() => {
     if (activeBreed == null || activeBreed === "") {
       return;
     }
@@ -45,6 +45,8 @@ export default function DogPresenter() {
     SetActiveDogImage(breedNames);
   }, [activeBreed]);
 
+  useEffect(() => loadNewImageHandler(), [activeBreed, loadNewImageHandler]);
+
   const getBreedImageUrl = async (breedNames: string[]) => {
     const response = await fetch(
       `https://dog.ceo/api/breed/${breedNames[0]}/images/random`
@@ -71,6 +73,7 @@ export default function DogPresenter() {
           <p>{text}</p>
         </div>
       </div>
+      <button onClick={loadNewImageHandler}>{Locale.seeNextImage}</button>
     </div>
   );
 }
