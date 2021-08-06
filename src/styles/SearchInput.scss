@@ -17,5 +17,9 @@
     height: 2rem;
     border-radius: 0.5rem;
     width: 80%;
+    &:focus {
+      outline: none;
+      border: 2px solid #f1b84e;
+    }
   }
 }
