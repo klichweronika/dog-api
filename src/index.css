@@ -13,3 +13,9 @@ body {
   height: 100%;
   width: 100%;
 }
+@media (max-width: 565px) {
+  body {
+    overflow: scroll;
+    flex-direction: column;
+  }
+}

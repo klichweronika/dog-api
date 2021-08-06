@@ -5,7 +5,7 @@
 
 .app {
   display: flex;
-  height: 100rem;
+  height: 70rem;
 }
 
 .presenter {
@@ -16,4 +16,24 @@
 .footer {
   position: absolute;
   bottom: 0;
+}
+
+@media (max-width: 565px) {
+  .app {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    height: 30rem;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .presenter {
+    width: 100%;
+  }
+
+  .footer {
+    display: none;
+  }
 }

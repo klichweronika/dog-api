@@ -3,3 +3,9 @@
   overflow-y: hidden;
   width: 15rem;
 }
+
+@media (max-width: 565px) {
+  .breed-navigator {
+    width: 100%;
+  }
+}
