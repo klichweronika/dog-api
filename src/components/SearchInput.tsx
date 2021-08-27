@@ -10,17 +10,11 @@ export default function SearchInput({
   placeholderText: defaultPlaceholder,
   onChangeHandler,
 }: SearchInputProps) {
-  const [placeholder, setPlaceholder] = useState<string>(defaultPlaceholder);
+  const [placeholder] = useState<string>(defaultPlaceholder);
 
   return (
     <div className="search-input">
-      <input
-        type="text"
-        placeholder={placeholder}
-        onChange={onChangeHandler}
-        onFocus={() => setPlaceholder("")}
-        onBlur={() => setPlaceholder(defaultPlaceholder)}
-      />
+      <input type="text" placeholder={placeholder} onChange={onChangeHandler} />
     </div>
   );
 }
