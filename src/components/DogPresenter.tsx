@@ -17,6 +17,22 @@ export default function DogPresenter() {
   });
   const { activeBreed } = useActiveBreed();
 
+  const getSubBreedImageUrl = async (breedNames: string[]): Promise<string> => {
+    const response = await fetch(
+      `https://dog.ceo/api/breed/${breedNames[0]}/${breedNames[1]}/images/random`
+    );
+    const json = await response.json();
+    return json.message;
+  };
+
+  const getBreedImageUrl = async (breedNames: string[]): Promise<string> => {
+    const response = await fetch(
+      `https://dog.ceo/api/breed/${breedNames[0]}/images/random`
+    );
+    const json = await response.json();
+    return json.message;
+  };
+
   const loadNewImageHandler = useCallback(() => {
     if (activeBreed == null || activeBreed === "") {
       return;
@@ -24,7 +40,7 @@ export default function DogPresenter() {
 
     const breedNames = activeBreed.split(" ");
 
-    async function SetActiveDogImage(breedNames: string[]) {
+    async function setActiveDogImage(breedNames: string[]): Promise<void> {
       if (breedNames.length === 1) {
         setActiveDog({
           imageUrl: await getBreedImageUrl(breedNames),
@@ -42,26 +58,10 @@ export default function DogPresenter() {
       });
     }
 
-    SetActiveDogImage(breedNames);
+    setActiveDogImage(breedNames);
   }, [activeBreed]);
 
   useEffect(() => loadNewImageHandler(), [activeBreed, loadNewImageHandler]);
-
-  const getBreedImageUrl = async (breedNames: string[]) => {
-    const response = await fetch(
-      `https://dog.ceo/api/breed/${breedNames[0]}/images/random`
-    );
-    const json = await response.json();
-    return json.message;
-  };
-
-  const getSubBreedImageUrl = async (breedNames: string[]) => {
-    const response = await fetch(
-      `https://dog.ceo/api/breed/${breedNames[0]}/${breedNames[1]}/images/random`
-    );
-    const json = await response.json();
-    return json.message;
-  };
 
   const { imageUrl, text } = activeDog;
 

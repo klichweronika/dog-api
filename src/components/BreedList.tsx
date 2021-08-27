@@ -24,5 +24,6 @@ export default function BreedList({ breeds: filteredBreeds }: DogsListProps) {
       </ul>
     );
   }
+
   return <p>{Locale.thereAreNoBreeds}</p>;
 }

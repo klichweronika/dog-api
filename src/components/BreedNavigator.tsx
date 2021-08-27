@@ -18,7 +18,7 @@ export default function BreedNavigator() {
   const [filteredBreeds, setFilteredBreeds] = useState<string[] | []>([]);
 
   useEffect(() => {
-    async function getBreedsList() {
+    async function getBreedsList(): Promise<void> {
       const allBreedsList = await fetch("https://dog.ceo/api/breeds/list/all");
       const allBreedsListJson = (await allBreedsList.json()) as BreedResponse;
 
@@ -32,12 +32,19 @@ export default function BreedNavigator() {
         );
       }
 
+      setFilteredBreeds(finalBreeds);
       setBreeds(finalBreeds);
     }
     getBreedsList();
   }, []);
 
-  const onSearchHandler = (event: ChangeEvent<HTMLInputElement>) => {
+  const onSearchHandler = (event: ChangeEvent<HTMLInputElement>): void => {
+    const userInput = event.currentTarget.value;
+
+    if (userInput === "") {
+      setFilteredBreeds(breeds);
+    }
+
     const normalizedInput = event.currentTarget.value.toLowerCase();
 
     const filteredBreeds = breeds.filter((breed) =>
@@ -54,7 +61,7 @@ export default function BreedNavigator() {
         onChangeHandler={onSearchHandler}
       />
       <Separator />
-      <BreedList breeds={filteredBreeds.length > 0 ? filteredBreeds : breeds} />
+      <BreedList breeds={filteredBreeds} />
     </div>
   );
 }
