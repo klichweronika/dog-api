@@ -17,7 +17,10 @@
     padding: 1rem;
     background-color: white;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    &:hover {
+      background-color: rgb(235, 235, 235);
+    }
   }
 
   img {
