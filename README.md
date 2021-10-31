@@ -1,6 +1,6 @@
 # Dog App
 
-This is Dog App project, which I used to learn more about TypeScript and SCSS. You can write on input a breed of dog or choose from the list, then you will see a photo of cute dog. By clicking the button above the picture you can see the next photo of selected breed. Works on mobile.
+This is Dog App project, which I used to learn more about TypeScript, React and SCSS. You can write on input a breed of dog or choose from the list, then you will see a photo of cute dog. By clicking the button above the picture you can see the next photo of selected breed. Works on mobile.
 
 ## Available Scripts
 
